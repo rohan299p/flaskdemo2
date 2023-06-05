@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CallCenter</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+        }
+
+        .input-container,
+        .response-container {
+            width: 400px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-container {
+            margin-right: 20px;
+        }
+
+        h1 {
+            margin-top: 5%;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .btn-group {
+            margin-top: 20px;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .btn-clear {
+            background-color: #f44336;
+        }
+
+        .response {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Call Center</h1>
+    <div class="container">
+        <div class="input-container">
+            <h2>Ask Me Anything!</h2>
+            <form method="POST" action="/">
+                <input type="text" name="query" placeholder="Enter your query" value="{{ query }}" autofocus>
+                <div class="btn-group">
+                    <input type="submit" class="btn" value="Submit">
+                    <input type="button" class="btn btn-clear" value="Clear" onclick="clearInput()">
+                </div>
+            </form>
+        </div>
+        <div class="response-container">
+            <h2>Response</h2>
+            <div class="response">
+                {{ result }}
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function clearInput() {
+            document.querySelector('input[name="query"]').value = '';
+        }
+    </script>
+</body>
+</html>
